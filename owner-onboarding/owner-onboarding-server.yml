@@ -1,0 +1,20 @@
+session_store_driver:
+  Directory:
+    path: /etc/fdo/sessions/
+ownership_voucher_store_driver:
+  Directory:
+    path: /etc/fdo/ownership_vouchers/
+trusted_device_keys_path: /etc/fdo/keys/device_ca_cert.pem
+owner_private_key_path: /etc/fdo/keys/owner_key.der
+owner_public_key_path: /etc/fdo/keys/owner_cert.pem
+owner_addresses:
+- transport: HTTP
+  port: 8081
+  addresses:
+    - ip_address: 127.0.0.1
+report_to_rendezvous_endpoint_enabled: true
+bind: 0.0.0.0:8081
+service_info_api_url: "http://127.0.0.1:8083/device_info"
+service_info_api_authentication:
+  BearerToken:
+    token: ExampleAuthToken

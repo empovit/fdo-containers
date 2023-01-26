@@ -1,0 +1,7 @@
+bind: 0.0.0.0:8083
+device_specific_store_driver:
+  Directory:
+    path: /etc/fdo/device_specific_serviceinfo
+service_info: {}
+service_info_auth_token: "ExampleAuthToken"
+admin_auth_token: "AdminAuthToken"

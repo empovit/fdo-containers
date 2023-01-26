@@ -1,0 +1,8 @@
+storage_driver:
+  Directory:
+    path: /etc/fdo/rendezvous_registered/
+session_store_driver:
+  Directory:
+    path: /etc/fdo/rendezvous_sessions/
+trusted_manufacturer_keys_path: /etc/fdo/keys/manufacturer_cert.pem
+bind: 0.0.0.0:8082
