@@ -1,17 +1,18 @@
 #!/bin/sh
 
+echo "Starting containers..."
+
 set -e
 
-user=$(id -u)
-add_args="--user ${user} --rm"
+add_args=""
 
 mkdir -p ownership_vouchers
 mkdir -p service_files
 
-podman run ${add_args} -d -p 8080:8080 \
+podman run ${add_args} --privileged -d -p 8080:8080 \
     -v $PWD/manufacturing:/etc/fdo/manufacturing-server.conf.d:Z \
     -v $PWD/keys:/etc/fdo/keys:Z \
-    -v $PWD/ownership_vouchers:/etc/fdo/ownership_vouchers:Z \
+    -v $PWD/ownership_vouchers:/etc/fdo/ownership_vouchers \
     --name fdo-manufacturing \
     quay.io/vemporop/fdo-manufacturing-server:1.0
 
