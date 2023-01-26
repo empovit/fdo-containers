@@ -2,6 +2,16 @@ bind: 0.0.0.0:8083
 device_specific_store_driver:
   Directory:
     path: /etc/fdo/device_specific_serviceinfo
-service_info: {}
+service_info:
+  initial_user:
+    username: test
+    sshkeys:
+    - test_key
+  commands:
+  - command: echo
+    args:
+    - "Hello, world!"
+    return_stdout: true
+    return_stderr: true
 service_info_auth_token: "ExampleAuthToken"
 admin_auth_token: "AdminAuthToken"
