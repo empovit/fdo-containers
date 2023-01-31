@@ -11,10 +11,10 @@ owner_addresses:
 - transport: HTTP
   port: 8081
   addresses:
-    - dns_name: fdo-local-setup
+    - ip_address: 127.0.0.1
 report_to_rendezvous_endpoint_enabled: true
 bind: 0.0.0.0:8081
-service_info_api_url: "http://fdo-local-setup:8083/device_info"
+service_info_api_url: "http://127.0.0.1:8083/device_info"
 service_info_api_authentication:
   BearerToken:
     token: ExampleAuthToken

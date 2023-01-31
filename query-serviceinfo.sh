@@ -8,5 +8,5 @@ do
     guid=${f##$dir/}
     echo "GUID: $guid"
     curl -f -s -X GET -H "Authorization: Bearer ExampleAuthToken" \
-        "http://fdo-local-setup:8083/device_info?serviceinfo_api_version=1&modules=${modules}&device_guid=${guid}" | jq .
+        "http://127.0.0.1:8083/device_info?serviceinfo_api_version=1&modules=${modules}&device_guid=${guid}" | jq .
 done

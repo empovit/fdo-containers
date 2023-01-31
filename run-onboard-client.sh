@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-podman run -ti --rm --privileged \
+podman run -ti --rm --privileged --net host \
     --name fdo-onboarding-client \
     -v $PWD/device_credentials:/root/creds \
-    fdo-onboarding-client:latest
+    localhost/fdo-onboarding-client:latest

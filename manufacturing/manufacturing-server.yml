@@ -9,7 +9,7 @@ public_key_store_driver:
     path: /etc/fdo/keys/
 bind: 0.0.0.0:8080
 rendezvous_info:
-- dns: fdo-local-setup
+- ip_address: 127.0.0.1
   device_port: 8082
   owner_port: 8082
   protocol: http
