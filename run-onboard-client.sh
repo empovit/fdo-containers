@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [[ ! -d device_credentials ]]
+if [[ ! -f device_credentials/device_credentials ]]
 then
     echo "Run the initialization client first" >&2
     exit 1

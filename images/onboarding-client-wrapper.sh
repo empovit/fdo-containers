@@ -1,5 +1,9 @@
 #!/bin/sh
 
+delay_sec=30
+echo "#### Will let the FDO client to run for ${delay_sec} sec, then exit ####"
+
 /usr/libexec/fdo/fdo-client-linuxapp &
-sleep 20
+
+sleep ${delay_sec}
 exit

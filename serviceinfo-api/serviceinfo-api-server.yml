@@ -3,10 +3,6 @@ device_specific_store_driver:
   Directory:
     path: /etc/fdo/device_specific_serviceinfo
 service_info:
-  initial_user:
-    username: test
-    sshkeys:
-    - test_key
   commands:
   - command: echo
     args:
