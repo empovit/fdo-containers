@@ -1,6 +1,6 @@
 # Containerized FDO Servers and Clients
 
-This repository allows running FDO servers as containers and interacting with them using clients that run as containers as well, for testing and development.
+This repository allows to run FDO servers as containers and interact with them using clients that run as containers as well, for testing and development.
 
 ## Important
 
