@@ -5,7 +5,7 @@ This repository allows to run FDO servers as containers and interact with them u
 ## Important
 
 * First, build the container images by running [./build-images.sh](./build-images.sh).
-* You will need to run the device initialization client ([./run-init-client.sh](./run-init-client.sh)) at least once to create a device credentials file under _device\_credentials_ and an ownership voucher unde _ownership\_vouchers_.
+* You will need to run the device initialization client ([./run-init-client.sh](./run-init-client.sh)) at least once to create a device credentials file under _device\_credentials_ and an ownership voucher under _ownership\_vouchers_.
 * You will need to wait for the owner-onboarding server to send ownership vouchers to the rendezvous server before a successful "onboarding".
 * Keep in mind that creating a user and many other service-info commands will fail because of the limitation of a container.
 * There is no need to generate keys and certificates as the repo already includes pre-generated ones for testing and development.
