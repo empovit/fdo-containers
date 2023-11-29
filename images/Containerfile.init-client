@@ -1,10 +1,17 @@
-FROM quay.io/rockylinux/rockylinux:9
+FROM registry.access.redhat.com/ubi9/ubi-init:9.3
+
+ARG RHSM_ORG
+ARG RHSM_ACTIVATIONKEY
 
 ENV LOG_LEVEL=trace
 ENV DEVICE_CREDENTIAL_FILENAME=/root/creds/device_credentials
 ENV MANUFACTURING_INFO=/root/serial/test_product_serial
 
+RUN subscription-manager register --name=rhcos-driver-builder --org=${RHSM_ORG} --activationkey=${RHSM_ACTIVATIONKEY}
+
 RUN dnf update -y && dnf install -y fdo-init fdo-owner-cli && dnf clean all
+
+RUN subscription-manager unregister
 
 RUN mkdir /root/creds && mkdir /root/serial && echo "TESTFDO" > /root/serial/test_product_serial
 

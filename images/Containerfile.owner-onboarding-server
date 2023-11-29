@@ -1,8 +1,15 @@
-FROM quay.io/rockylinux/rockylinux:9
+FROM registry.access.redhat.com/ubi9/ubi-init:9.3
+
+ARG RHSM_ORG
+ARG RHSM_ACTIVATIONKEY
 
 ENV LOG_LEVEL=trace
 
+RUN subscription-manager register --name=rhcos-driver-builder --org=${RHSM_ORG} --activationkey=${RHSM_ACTIVATIONKEY}
+
 RUN dnf update -y && dnf install -y fdo-owner-onboarding-server && dnf clean all
+
+RUN subscription-manager unregister
 
 RUN mkdir -p /etc/fdo/sessions
 RUN mkdir -p /etc/fdo/owner-onboarding-server.conf.d
