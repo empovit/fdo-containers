@@ -1,7 +1,9 @@
 #!/bin/sh
 
+
 mkdir -p device_credentials
 
+RHEL_VERSION=${RHEL_VERSION:-9.3}
 address=${MANUFACTURING_ADDRESS:-'http://127.0.0.1:8080'}
 
 podman run -ti --rm --privileged --net host \
@@ -9,4 +11,4 @@ podman run -ti --rm --privileged --net host \
     -v $PWD/device_credentials:/root/creds \
     -e DIUN_PUB_KEY_INSECURE=true \
     -e MANUFACTURING_SERVER_URL=${address} \
-    localhost/fdo-init-client:latest
+    localhost/fdo-init-client:rhel${RHEL_VERSION}

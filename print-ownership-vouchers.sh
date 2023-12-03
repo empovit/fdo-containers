@@ -1,5 +1,6 @@
 #!/bin/sh
 
+RHEL_VERSION=${RHEL_VERSION:-9.3}
 dir=ownership_vouchers
 
 for f in $dir/*
@@ -8,5 +9,5 @@ do
     echo "=== OV: ${filename} ==="
     podman run -ti --rm \
         -v $PWD/ownership_vouchers:/etc/fdo/ownership_vouchers:Z \
-        localhost/fdo-owner-cli:latest dump-ownership-voucher /etc/fdo/ownership_vouchers/${filename}
+        localhost/fdo-owner-cli:rhel${RHEL_VERSION} dump-ownership-voucher /etc/fdo/ownership_vouchers/${filename}
 done

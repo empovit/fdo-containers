@@ -1,11 +1,12 @@
-FROM registry.access.redhat.com/ubi9/ubi-init:9.3
+ARG RHEL_VERSION
+FROM registry.access.redhat.com/ubi9/ubi-init:${RHEL_VERSION}
 
-ARG RHSM_ORG
-ARG RHSM_ACTIVATIONKEY
-
+ENV SMDEV_CONTAINER_OFF=1
 ENV LOG_LEVEL=trace
 
-RUN subscription-manager register --name=rhcos-driver-builder --org=${RHSM_ORG} --activationkey=${RHSM_ACTIVATIONKEY}
+RUN --mount=type=secret,id=rhsm_org \
+    --mount=type=secret,id=rhsm_activationkey \
+    subscription-manager register --name=fdo-image-builder --org=$(cat /run/secrets/rhsm_org) --activationkey=$(cat /run/secrets/rhsm_activationkey)
 
 RUN dnf update -y && dnf install -y fdo-owner-onboarding-server && dnf clean all
 
