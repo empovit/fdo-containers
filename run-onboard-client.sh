@@ -13,8 +13,9 @@ then
 fi
 
 RHEL_VERSION=${RHEL_VERSION:-9.3}
+IMAGE_REPO=${IMAGE_REPO:-"quay.io/vemporop"}
 
 podman run -ti --rm --privileged --net host \
     --name fdo-onboarding-client \
     -v $PWD/device_credentials:/root/creds ${environment} \
-    localhost/fdo-onboarding-client:rhel${RHEL_VERSION}
+    ${IMAGE_REPO}/fdo-onboarding-client:rhel${RHEL_VERSION}
