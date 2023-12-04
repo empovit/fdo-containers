@@ -8,7 +8,7 @@ RUN --mount=type=secret,id=rhsm_org \
     --mount=type=secret,id=rhsm_activationkey \
     subscription-manager register --name=fdo-image-builder --org=$(cat /run/secrets/rhsm_org) --activationkey=$(cat /run/secrets/rhsm_activationkey)
 
-RUN dnf update -y && dnf install -y fdo-admin-cli && dnf clean all
+RUN dnf install -y fdo-admin-cli && dnf clean all
 
 RUN subscription-manager unregister
 
