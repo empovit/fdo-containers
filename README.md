@@ -16,4 +16,4 @@ This repository allows to run FDO servers as containers and interact with them u
 * Lightweight.
 * Quick turnaround when trying, for instance, various configurations.
 * Any generated files (such as device credentials or OV) are available locally right away, without copying.
-* Can simulate various parts of the protocol separately, e.g. device "onboarding" without waiting OS installation or device initialization.
+* Can simulate various parts of the protocol separately, e.g. device "onboarding" without waiting for OS installation or device initialization.
